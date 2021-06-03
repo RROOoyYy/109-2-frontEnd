@@ -22,6 +22,16 @@ const useStyle = makeStyles({
   }
 })
 
+const theme = createMuiTheme({
+  palette :{
+    primary :{
+      main : "#000000",
+    },
+    secondary:{
+      main : "#FFFFFF",
+    }
+  }
+})
 
 function ButtonStyled() {
   const classes = useStyle();
@@ -38,22 +48,24 @@ function CheckboxExample(){
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <ButtonStyled />
-        <TextField  variant = "filled" color = "secondary" type = "email" label = "your email" placeholder = "your email address"/> 
-        <CheckboxExample />
-          <ButtonGroup variant = "contained" size = "large" color="primary">
-              <Button startIcon = {<SaveIcon />}>
-                Save
-              </Button>
-              <Button startIcon = {<DeleteIcon />}>
-                Discard
-              </Button>
-          </ButtonGroup>
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <ThemeProvider theme = {theme}>
+      <div className="App">
+        <header className="App-header">
+          <ButtonStyled />
+          <TextField  variant = "filled" color = "secondary" type = "email" label = "your email" placeholder = "your email address"/> 
+          <CheckboxExample />
+            <ButtonGroup variant = "contained" size = "large" color="primary">
+                <Button startIcon = {<SaveIcon />}>
+                  Save
+                </Button>
+                <Button startIcon = {<DeleteIcon />}>
+                  Discard
+                </Button>
+            </ButtonGroup>
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 
