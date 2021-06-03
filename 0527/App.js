@@ -8,6 +8,25 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControllLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
+import {makeStyles,ThemeProvider,createMuiTheme} from '@material-ui/core/styles';
+
+
+const useStyle = makeStyles({
+  root : {
+    background : 'linear-gradient(45deg,#FE6B8B,#FF8E53)',
+    border : 0,
+    borderRadius : 15,
+    marginBottom : 10,
+    color : 'white',
+    padding : '10px 30px' 
+  }
+})
+
+
+function ButtonStyled() {
+  const classes = useStyle();
+  return <Button className = {classes.root}> Cool style button</Button>
+}
 
 
 function CheckboxExample(){
@@ -21,6 +40,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <ButtonStyled />
         <TextField  variant = "filled" color = "secondary" type = "email" label = "your email" placeholder = "your email address"/> 
         <CheckboxExample />
           <ButtonGroup variant = "contained" size = "large" color="primary">
